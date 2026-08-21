@@ -63,6 +63,11 @@ local M = {}
 --- @field trim_whitespace boolean
 --- @field location_format string
 
+--- @class FffFilePickerConfig
+--- @field current_file_label string
+--- @field display_relative_path boolean
+--- @field fuzzy_query_highlighting boolean
+
 --- @alias FffSelectAction 'edit' | 'split' | 'vsplit' | 'tab'
 
 --- @class FffSelectConfig
@@ -90,7 +95,7 @@ local M = {}
 --- @field debug table
 --- @field logging table
 --- @field wrap_around boolean
---- @field file_picker table
+--- @field file_picker FffFilePickerConfig
 --- @field grep FffGrepConfig
 
 ---@class fff.conf.State
@@ -418,6 +423,7 @@ local function init()
     -- find_files settings
     file_picker = {
       current_file_label = '(current)',
+      display_relative_path = false,
       fuzzy_query_highlighting = false,
     },
     -- grep settings
